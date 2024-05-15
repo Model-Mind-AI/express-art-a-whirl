@@ -35,11 +35,14 @@ app.post('/saveImage', async (req, res) => {
         // Generate a unique filename
         const timestamp = new Date().toISOString();
         const filename = `${timestamp}.jpg`;
+        console.log('filename ${filename}');
         const filepath = path.join(imagesFolder, filename);
+        console.log('filepath ${filepath}');
 
         // Save the image to the images folder
         const writer = fs.createWriteStream(filepath);
         response.data.pipe(writer);
+        console.log('writing file');
 
         writer.on('finish', async () => {
             // Update the JSON file with the image URL and timestamp
