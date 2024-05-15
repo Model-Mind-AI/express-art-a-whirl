@@ -8,8 +8,9 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // Ensure the images folder and JSON file exist
-const imagesFolder = path.join(__dirname, 'images');
-const jsonFile = path.join(__dirname, 'images.json');
+const dir = '/var/data'
+const imagesFolder = path.join(dir, 'images');
+const jsonFile = path.join(dir, 'images.json');
 
 fs.ensureDirSync(imagesFolder);
 fs.ensureFileSync(jsonFile);
